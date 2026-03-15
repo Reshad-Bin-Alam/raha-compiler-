@@ -37,5 +37,6 @@ void init_lexer(const char *filename);
 TokenList tokenize();
 void print_tokens(TokenList *token_list);
 const char* get_token_name(TokenType type);
+void cleanup_lexer();
 
 #endif

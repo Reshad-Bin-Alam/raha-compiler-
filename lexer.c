@@ -192,3 +192,11 @@ void print_tokens(TokenList *token_list) {
     }
     printf("==================================================\n");
 }
+
+// Cleanup lexer and free allocated memory
+void cleanup_lexer() {
+    if (source_code != NULL) {
+        free(source_code);
+        source_code = NULL;
+    }
+}

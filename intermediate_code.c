@@ -22,6 +22,11 @@ void add_code(const char *code_line) {
 }
 
 // Generate a new temporary variable
+/* NOTE: Returns pointer to static buffer. This is acceptable for this
+ * educational compiler because the result is immediately used in sprintf()
+ * calls before the next temp is generated. For production code, consider
+ * returning a dynamically allocated string or using a different approach.
+ */
 char* generate_temp() {
     static char temp[10];
     sprintf(temp, "t%d", ic.temp_count++);

@@ -79,5 +79,8 @@ int main(int argc, char *argv[]) {
     printf("╚═══════════════════════════════════════════════════════════╝\n");
     printf("\n");
     
+    // Cleanup
+    cleanup_lexer();
+    
     return 0;
 }

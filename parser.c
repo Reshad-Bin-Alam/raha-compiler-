@@ -45,6 +45,21 @@ static char* parse_expression();
 static char* parse_term();
 static char* parse_factor();
 
+/* NOTE ON STATIC VARIABLES IN PARSING FUNCTIONS:
+ * This educational compiler uses static buffers to return string results from
+ * parse_expression(), parse_term(), and parse_factor(). While this approach has
+ * limitations (the buffers are shared across invocations), it works correctly
+ * for this simple grammar because:
+ * 1. Results are immediately copied/used by callers before the next invocation
+ * 2. The grammar is simple with left-to-right evaluation
+ * 3. This keeps the code simple and readable for students
+ * 
+ * For production compilers, consider using:
+ * - Dynamic memory allocation with proper cleanup
+ * - Caller-provided buffers
+ * - Abstract Syntax Tree (AST) instead of string-based results
+ */
+
 // Parse factor: identifier | number
 static char* parse_factor() {
     static char result[MAX_LEXEME_LENGTH];
